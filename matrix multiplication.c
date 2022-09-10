@@ -1,89 +1,87 @@
 #include<stdio.h>
 int main()
 {
-	int i,j,l;
-	int m,n,k;
-		
-	printf("This program is for finding the multiplication of two matrices\n\n");
+	int m,n,o;
+	int i,j,l,k;
 	
-	printf("enter the value of m n k \n");
-	scanf("%d%d%d",&m,&n,&k);
+	printf("this programming is for solving matrix multiplication\n\n");
 	
-	printf("\n enter the values of second matrix\n\n");
+	printf("enter the value of m,n,k:\n");
+	scanf("%d%d%d",&m,&n,&o);
 	
-											int A[m][n];
-											
-												printf("\n\n");	
-											for(i=0;i<m;i++)
-											{
-												for(j=0;j<n;j++)
-												{
-													scanf("%d",&A[i][j]);
-												}
-												printf("\n");
-											}
-										
-											
-												printf("\n\n");	
-												
-											for(i=0;i<m;i++)
-											{
-												for(j=0;j<n;j++)
-												{
-													printf(" %d ",A[i][j]);
-												}
-												printf("\n");
-											}
-															
-											
-		int B[n][k];
+	int A[m][n],B[n][o];
+	int C[m][o];
 	
-		printf("\n enter the values of second matrix\n\n");	
-	for(i=0;i<n;i++)
-	{
-		for(j=0;j<k;j++)
-		{
-			scanf("%d",&B[i][j]);
-		}
-		printf("\n");
-	}
-
-		printf("\n\n");	
-		
-	for(i=0;i<n;i++)
-	{
-		for(j=0;j<k;j++)
-		{
-			printf(" %d ",B[i][j]);
-		}
-		printf("\n");
-	}
+	printf("m=%d n=%d k=%d\n",m,n,o);
 	
-	printf("\n\nhere is the output of the two matrices multiplication\n\n");
-	
-	int C[m][k];
+	printf("\t Enter the value of A matrix:\n");
 	
 	for(i=0;i<m;i++)
 	{
-		for(j=0;j<k;j++)
+		for(j=0;j<n;j++)
 		{
-			C[i][j]=0;
-			for(l=0;l<m;l++)
-			{	
-				C[i][j] += A[i][l]*B[l][j];
-			}
+			scanf("%d",&A[i][j]);
 		}
 	}
-	printf("below is the result\n\n");
 	
-		for(i=0;i<n;i++)
+	
+	for(i=0;i<m;i++)
 	{
-		for(j=0;j<k;j++)
+		for(j=0;j<n;j++)
 		{
-			printf(" %d ",C[i][j]);
+			printf(" %d ",A[i][j]);		
 		}
 		printf("\n");
 	}
+	
+	printf("\n\t Enter the value of A matrix:\n");
+	
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<o;j++)
+		{
+			scanf("%d",&B[i][j]);
+		}
+	}
+	
+	
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<o;j++)
+		{
+			printf(" %d ",B[i][j]);		
+		}
+		printf("\n");
+	}
+	
+	// upto here no error as well as input of the two matrix done 
+	
+	
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<o;j++)
+		{
+			C[i][j]=0;
+			for(k=0;k<n;k++)
+			{
+				C[i][j]+=A[i][k]*B[k][j];
+			}
+		}
+	}
+	
+	printf("here is the output of matrix:\n\n");
+	
+	for(i=0;i<m;i++)
+	{
+		for(j=0;j<o;j++)
+		{
+			printf(" %d ",C[i][j]);
+			
+		}
+		printf("\n");
+	}
+	
+	
 	
 	
 }
